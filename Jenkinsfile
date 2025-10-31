@@ -11,9 +11,7 @@ pipeline{
                 git branch: 'main', url: 'https://github.com/vaja13/test_jenkins'
             }
         }
-    }
     
-    stages {
         stage('Initialize') {
             steps {
                 sh 'echo "Initializing the project..."'
