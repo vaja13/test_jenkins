@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Iris Flower Input Form</title>
+    <style>
+        body {
+            background: #f8fafc;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background: #fff;
+            padding: 2rem 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            min-width: 320px;
+        }
+
+        label {
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        input[type="number"] {
+            padding: 0.5rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="number"]:focus {
+            border-color: #2563eb;
+        }
+
+        button {
+            padding: 0.7rem;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #1e40af;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form action="/predict" method="post">
+            <div>
+                <label for="sepal_length">Sepal Length:</label>
+                <input type="number" step="any" id="sepal_length" name="sepal_length" required>
+            </div>
+            <div>
+                <label for="sepal_width">Sepal Width:</label>
+                <input type="number" step="any" id="sepal_width" name="sepal_width" required>
+            </div>
+            <div>
+                <label for="petal_length">Petal Length:</label>
+                <input type="number" step="any" id="petal_length" name="petal_length" required>
+            </div>
+            <div>
+                <label for="petal_width">Petal Width:</label>
+                <input type="number" step="any" id="petal_width" name="petal_width" required>
+            </div>
+            <button type="submit">Submit</button>
+
+        </form>
+
+        {% if prediction_text %}
+        <div style="margin-top: 20px; font-size: 1.2rem; color: #2563eb;">
+            <strong>Prediction:</strong> {{ prediction_text }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>

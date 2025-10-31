@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  composedbapp:
+    build: ./dbapp
+    image: composedbapp
+    container_name: composedbapp
+    ports:
+      - "5004:5003"
+    networks:
+      - micro
+    volumes:
+      - dbweb:/app/
+
+  composewebapp:
+    build: ./webapp
+    image: composewebapp
+    container_name: composewebapp
+    ports:
+      - "5005:5001"
+    depends_on:
+      - composedbapp
+    networks:
+      - micro
+
+networks:
+  micro:
+    driver: bridge
+volumes:
+  dbweb:
+    external: true
+      
