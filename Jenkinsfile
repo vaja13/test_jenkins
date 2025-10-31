@@ -4,6 +4,10 @@ pipeline{
             label 'local'
         }
     }
+    environment {
+        PATH = "/usr/local/bin:${env.PATH}"
+    }
+
     stages{
         stage("git checkout") {
             steps {
