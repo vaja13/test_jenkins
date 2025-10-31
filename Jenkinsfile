@@ -8,7 +8,7 @@ pipeline{
         stage("git checkout") {
             steps {
                 sh 'echo "git checkout"'
-                git branch: 'main', url: 'https://github.com/vaja13/test_jenkins'
+                git branch: 'main', url: 'https://github.com/vaja13/test_jenkins.git'
             }
         }
     
